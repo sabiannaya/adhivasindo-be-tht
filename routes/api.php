@@ -17,6 +17,6 @@ Route::prefix('auth')->controller(UserController::class)->group(function () {
     Route::post('register', 'register');
 });
 
-Route::prefix('data')->controller(DataController::class)->group(function () {
+Route::prefix('data')->middleware('auth')->controller(DataController::class)->group(function () {
     Route::get('search', 'search');
 });
